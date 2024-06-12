@@ -1,0 +1,74 @@
+import { ReactNode, useEffect, useRef, useState } from "react";
+
+type Panel = {
+  title: ReactNode;
+  content: ReactNode;
+};
+
+export interface PanelsProps {
+  allowMultipleOpen: boolean;
+  panels: Panel[];
+}
+
+export function Panels({ allowMultipleOpen, panels }: PanelsProps): ReactNode {
+  const [openPanels, setOpenPanels] = useState<number[]>([]);
+  const contentRefs = useRef<HTMLDivElement[]>([]);
+
+  const handleTogglePanel = (index: number) => {
+    if (allowMultipleOpen) {
+      if (openPanels.includes(index)) {
+        setOpenPanels(openPanels.filter((i) => i !== index));
+      } else {
+        setOpenPanels([...openPanels, index]);
+      }
+    } else {
+      setOpenPanels(openPanels.includes(index) ? [] : [index]);
+    }
+  };
+
+  useEffect(() => {
+    contentRefs.current = contentRefs.current.slice(0, panels?.length);
+  }, [panels?.length]);
+
+  if (!panels) return null;
+
+  return (
+    <div className="p-6">
+      <div className="rounded-lg bg-gray-50">
+        <div className="px-4 py-6">
+          <p className="text-lg">Lorem ipsum dolor sit</p>
+          <p className="text-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="rounded-lg border-[1px] bg-white shadow-md">
+          {panels.map((panel, index) => (
+            <div className="rounded-t-lg border-b-2 bg-white p-6" key={index}>
+              <div
+                onClick={() => handleTogglePanel(index)}
+                className="flex cursor-pointer"
+              >
+                {panel.title}
+              </div>
+              <div
+                className="transition-all duration-300 ease-in-out overflow-hidden"
+                style={{
+                  maxHeight: openPanels.includes(index)
+                    ? `${contentRefs.current[index]?.scrollHeight}px`
+                    : "0",
+                }}
+                ref={(el) => {
+                  if (el) {
+                    contentRefs.current[index] = el;
+                  }
+                }}
+              >
+                {panel.content}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
