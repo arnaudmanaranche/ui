@@ -39,7 +39,7 @@
     "@storybook/addon-links": "^8.1.6",
     "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/blocks": "^8.1.6",
-    "@storybook/preset-create-react-app": "^4.1.0",
+    "@storybook/preset-create-react-app": "^8.1.6",
     "@storybook/react": "^8.1.6",
     "@storybook/react-webpack5": "^8.1.6",
     "@storybook/test": "^8.1.6",
