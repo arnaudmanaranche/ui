@@ -7,7 +7,7 @@ export interface SidebarProps {
   children: ReactNode;
 }
 
-export function Sidebar({ children }: SidebarProps): ReactNode {
+export function Sidebar({ children }: SidebarProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
