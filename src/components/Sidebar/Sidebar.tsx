@@ -14,8 +14,8 @@ export function Sidebar({ children }: SidebarProps) {
     <div
       data-state={isHovered ? "expanded" : "collapsed"}
       className={cx(
-        "bg-[#1c1c1c] transition-all ease-in-out duration-300 group py-2 group z-10 h-full w-14 data-[state=expanded]:w-[13rem] data-[state=expanded]:shadow-xl transition-width flex flex-col justify-between",
-        isHovered && "w-[200px]"
+        "transition-width group z-10 flex h-full w-14 flex-col justify-between bg-[#1c1c1c] py-2 transition-all duration-300 ease-in-out data-[state=expanded]:w-[13rem] data-[state=expanded]:shadow-xl",
+        isHovered && "w-[200px]",
       )}
       onMouseEnter={(e) => {
         setIsHovered(true);
@@ -24,7 +24,7 @@ export function Sidebar({ children }: SidebarProps) {
         setIsHovered(false);
       }}
     >
-      <ul className="flex flex-col gap-y-1 justify-start px-2">{children}</ul>
+      <ul className="flex flex-col justify-start gap-y-1 px-2">{children}</ul>
     </div>
   );
 }

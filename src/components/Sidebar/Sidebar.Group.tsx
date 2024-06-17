@@ -5,7 +5,7 @@ export interface SidebarItemsGroupProps {
 }
 
 function SidebarItemsGroupSeparator() {
-  return <div className="shrink-0 h-[1px] w-full my-1 bg-[#2e2e2e]" />;
+  return <div className="my-1 h-[1px] w-full shrink-0 bg-[#2e2e2e]" />;
 }
 
 export function SidebarItemsGroup({ children }: SidebarItemsGroupProps) {

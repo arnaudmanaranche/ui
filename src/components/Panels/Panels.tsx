@@ -51,7 +51,7 @@ export function Panels({ allowMultipleOpen, panels }: PanelsProps): ReactNode {
                 {panel.title}
               </div>
               <div
-                className="transition-all duration-300 ease-in-out overflow-hidden"
+                className="overflow-hidden transition-all duration-300 ease-in-out"
                 style={{
                   maxHeight: openPanels.includes(index)
                     ? `${contentRefs.current[index]?.scrollHeight}px`
