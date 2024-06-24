@@ -1,5 +1,5 @@
 import cx from "clsx";
-import { ReactNode, useState } from "react";
+import { useState, type ReactNode } from "react";
 import { SidebarItemsGroup } from "./Sidebar.Group";
 import { SidebarItem } from "./Sidebar.Item";
 
@@ -17,10 +17,10 @@ export function Sidebar({ children }: SidebarProps) {
         "transition-width group z-10 flex h-full w-14 flex-col justify-between bg-[#1c1c1c] py-2 transition-all duration-300 ease-in-out data-[state=expanded]:w-[13rem] data-[state=expanded]:shadow-xl",
         isHovered && "w-[200px]",
       )}
-      onMouseEnter={(e) => {
+      onMouseEnter={() => {
         setIsHovered(true);
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={() => {
         setIsHovered(false);
       }}
     >
