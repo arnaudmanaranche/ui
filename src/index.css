@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.shadow-multicode {
+  box-shadow: rgb(237, 237, 237) 0px 0px 0px 1px;
+}
+
+.shadow-multicode-inset {
+  box-shadow: rgb(237, 237, 237) 0px -1px 0px 0px inset;
+}
